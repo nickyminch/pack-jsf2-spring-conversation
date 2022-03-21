@@ -57,7 +57,7 @@ public class $output.currentClass implements Filter {
             // RESUME existing conversation
             // -----------------------------
             try {                
-                conversationManager.resumeConversation(cid, ccid, request);
+            	ConversationManager.getInstance().resumeConversation(cid, ccid, request);
                 log.debug("Conv. {} resumed. Nb ctx: {}", cid, getCurrentConversation().getConversationContextesCount());
             } catch (UnexpectedConversationException uue) {
                 log.error(uue.getMessage());
@@ -68,7 +68,7 @@ public class $output.currentClass implements Filter {
             try {
                 filterChain.doFilter(request, response);
             } finally {
-                conversationManager.pauseCurrentConversation(request);
+            	ConversationManager.getInstance().pauseCurrentConversation(request);
             }
         } else if (!request.getRequestURI().contains("/javax.faces.resource/") && "true".equals(request.getParameter("_ncid_"))) {
             throw new IllegalArgumentException("This version does not support ncid parameter");

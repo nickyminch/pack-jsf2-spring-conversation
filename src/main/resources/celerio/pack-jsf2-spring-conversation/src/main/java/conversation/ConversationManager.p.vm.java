@@ -56,6 +56,9 @@ public class $output.currentClass implements ApplicationContextAware {
 #if(!$output.isAbstract())
     private static ${output.currentClass} instance;
     public static ${output.currentClass} getInstance() {
+    	if(instance==null) {
+    		new ${output.currentClass}();
+    	}
         return instance;
     }
 
