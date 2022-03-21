@@ -45,7 +45,7 @@ $output.file("pom.xml")##
         <jdbc.version>8.0.28</jdbc.version>
 
         <!-- h2 jdbc settings -->
-        <jdbc.driver>com.mysql.jdbc.Driver</jdbc.driver>
+        <jdbc.driver>com.mysql.cj.jdbc.Driver</jdbc.driver>
         <jdbc.url>jdbc:mysql://localhost:3309/${dollar}{database.name}</jdbc.url>
         <jdbc.user>${dollar}{database.user}</jdbc.user>
         <jdbc.password>${dollar}{database.password}</jdbc.password>
